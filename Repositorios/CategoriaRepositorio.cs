@@ -11,7 +11,7 @@ namespace gastosv4.Repositorios
         {
             var mongoClient = new MongoClient(configurations.GetConnectionString("mongoDb"));
             var mongoDatabase = mongoClient.GetDatabase(configurations.GetConnectionString("mongoDbNombre"));
-            _collection = mongoDatabase.GetCollection<Categoria>("Subcategorias");
+            _collection = mongoDatabase.GetCollection<Categoria>("Categorias");
         }
 
         public async Task<List<Categoria>> ObtenerTodosAsync()

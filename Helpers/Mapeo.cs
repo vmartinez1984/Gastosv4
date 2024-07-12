@@ -9,6 +9,8 @@ namespace gastosv4.Helpers
         public Mapeo()
         {
             CreateMap<Categoria, CategoriaDto>();
+
+            CreateMap<Subcategoria, SubcategoriaDto>();
         }
     }
 }

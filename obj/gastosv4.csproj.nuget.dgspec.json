@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/vmartinez/Desktop/gastosv4/gastosv4.csproj": {}
+    "/home/vmartinez/Desktop/Gastosv4/gastosv4.csproj": {}
   },
   "projects": {
-    "/home/vmartinez/Desktop/gastosv4/gastosv4.csproj": {
+    "/home/vmartinez/Desktop/Gastosv4/gastosv4.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/vmartinez/Desktop/gastosv4/gastosv4.csproj",
+        "projectUniqueName": "/home/vmartinez/Desktop/Gastosv4/gastosv4.csproj",
         "projectName": "gastosv4",
-        "projectPath": "/home/vmartinez/Desktop/gastosv4/gastosv4.csproj",
+        "projectPath": "/home/vmartinez/Desktop/Gastosv4/gastosv4.csproj",
         "packagesPath": "/home/vmartinez/.nuget/packages/",
-        "outputPath": "/home/vmartinez/Desktop/gastosv4/obj/",
+        "outputPath": "/home/vmartinez/Desktop/Gastosv4/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/vmartinez/.nuget/NuGet/NuGet.Config"

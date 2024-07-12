@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "iPbUquJoGk2oLGfhN2iiF9ytF/mvMSSg5+rUUlATL8Sh/tPTn+j0payxihQkZAD7b2B4uHmg1inEiOlWEvOMMg==",
+  "dgSpecHash": "dUFDykMxUZM1dTi5QmBK3eoQIZtVKdMgGOezWbtXEO+uQifkDi878XfUW2WB0A+JfVGUaYSK0cDtuRuzOn4WwA==",
   "success": true,
-  "projectFilePath": "/home/vmartinez/Desktop/gastosv4/gastosv4.csproj",
+  "projectFilePath": "/home/vmartinez/Desktop/Gastosv4/gastosv4.csproj",
   "expectedPackageFiles": [
     "/home/vmartinez/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
     "/home/vmartinez/.nuget/packages/awssdk.core/3.7.100.14/awssdk.core.3.7.100.14.nupkg.sha512",
