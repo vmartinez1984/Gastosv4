@@ -22,7 +22,7 @@ namespace gastosv4.Repositorios
             filter = Builders<Subcategoria>.Filter.Eq(x => x.EstaActivo, true);
             list = (await _collection.FindAsync(x => x.EstaActivo == true)).ToList();
 
-            return list;
+            return list.OrderByDescending(x=> x.FechaDeRegistro).ToList();
         }
 
         public async Task ActualizarAsync(Subcategoria item)
@@ -42,6 +42,27 @@ namespace gastosv4.Repositorios
             item = (await _collection.FindAsync(filter)).FirstOrDefault();
 
             return item;
+        }
+
+        public async Task<string> AgregarAsync(Subcategoria subcategoria)
+        {
+            subcategoria.Id = await ObtenerIdAscyn();
+            
+            await _collection.InsertOneAsync(subcategoria);
+
+            return subcategoria.Id;
+        }
+
+        private async Task<string> ObtenerIdAscyn()
+        {
+            //Subcategoria subcategoria;
+            //FilterDefinition<Subcategoria> filter;
+
+            //filter = Builders<Subcategoria>.Filter
+            var id = await _collection.CountDocumentsAsync(_ => true);
+            id = id++;
+
+            return id.ToString();
         }
     }
 }

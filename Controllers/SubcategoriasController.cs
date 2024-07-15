@@ -36,5 +36,17 @@ namespace gastosv4.Controllers
 
             return Ok(subcategoria);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> AgregarAsync(SubcategoriaDtoIn item)
+        {
+            string id;
+
+            id = await _unitOfWork.Subcategoria.AgregarAsync(item);
+
+            return Ok(new {Id = id, Guid= item.Guid});
+        }
+
+
     }
 }

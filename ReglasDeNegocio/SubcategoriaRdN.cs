@@ -27,6 +27,19 @@ namespace gastosv4.ReglasDeNegocio
             return lista;
         }
 
+        public async Task<string> AgregarAsync(SubcategoriaDtoIn item)
+        {
+            string id;
+            Subcategoria subcategoria;
+
+            subcategoria = _mapper.Map<Subcategoria>(item);
+            if(string.IsNullOrEmpty( subcategoria.Guid))
+                subcategoria.Guid = Guid.NewGuid().ToString();
+            id = await _repositorio.Subcategoria.AgregarAsync(subcategoria);
+
+            return id;
+        }
+
         internal async Task<SubcategoriaDto> ObtenerAsync(string id)
         {
             SubcategoriaDto dto;

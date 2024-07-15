@@ -23,6 +23,6 @@ namespace gastosv4.Controllers
             lista = await _unitOfWork.Categoria.ObtenerAsync();
 
             return Ok(lista);
-        }
+        }        
     }
 }

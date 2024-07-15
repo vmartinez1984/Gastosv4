@@ -23,6 +23,6 @@ namespace gastosv4.Entidades
 
         public bool EsPrimario { get; set; }
 
-        public bool EstaActivo { get; set; }
+        public bool EstaActivo { get; set; } = true;
     }
 }
