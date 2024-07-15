@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Gastosv4.ReglasDeNegocio;
 
 namespace gastosv4.ReglasDeNegocio
 {
@@ -9,11 +10,11 @@ namespace gastosv4.ReglasDeNegocio
     {
         public UnitOfWork(
             SubcategoriaRdN subcategoriaBl,
-            CategoriaRdN categoriaBl
-            // CuentaBl cuentaBl,
+            CategoriaRdN categoriaBl,
+            AhorroRdN ahorroRdN,
             // TransaccionBl transaccionBl,
             // HistorialBl historialBl,
-            // VersionBl versionBl,
+            VersionRdN versionBl
             // PresupuestoBl presupuestoBl,
             // TipoDeCuentaBl tipoDeCuentaBl,
             // PeriodoBl periodoBl,
@@ -22,10 +23,10 @@ namespace gastosv4.ReglasDeNegocio
         {
             Categoria = categoriaBl;
             Subcategoria = subcategoriaBl;
-            // Cuenta = cuentaBl;
+            Version = versionBl;
+            Ahorro = ahorroRdN;
             // Transaccion = transaccionBl;
             // Historial = historialBl;
-            // Version = versionBl;
             // Presupuesto = presupuestoBl;
             // TipoDeCuenta = tipoDeCuentaBl;
             // Periodo = periodoBl;
@@ -34,10 +35,11 @@ namespace gastosv4.ReglasDeNegocio
         public SubcategoriaRdN Subcategoria { get; internal set; }
         public CategoriaRdN Categoria { get; set; }
 
-        // public CuentaBl Cuenta { get; }
+        public VersionRdN Version { get; set; }
+        
+        public AhorroRdN Ahorro {get; set;}
         // public TransaccionBl Transaccion { get; }
         // public HistorialBl Historial { get; internal set; }
-        // public VersionBl Version { get; set; }
         // public PresupuestoBl Presupuesto { get; internal set; }
         // public TipoDeCuentaBl TipoDeCuenta { get; internal set; }
         // public PeriodoBl Periodo { get; internal set; }

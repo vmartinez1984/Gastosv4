@@ -1,6 +1,8 @@
 using AutoMapper;
 using gastosv4.Dtos;
 using gastosv4.Entidades;
+using Gastosv4.Dtos;
+using Gastosv4.Entidades;
 
 namespace gastosv4.Helpers
 {
@@ -13,6 +15,8 @@ namespace gastosv4.Helpers
             CreateMap<Subcategoria, SubcategoriaDto>();
 
             CreateMap<SubcategoriaDtoIn, Subcategoria>();
+
+            CreateMap<Ahorro, AhorroDto>();
         }
     }
 }

@@ -1,4 +1,5 @@
 using gastosv4.Entidades;
+using MongoDB.Bson;
 using MongoDB.Driver;
 
 namespace gastosv4.Repositorios
@@ -22,7 +23,7 @@ namespace gastosv4.Repositorios
             filter = Builders<Subcategoria>.Filter.Eq(x => x.EstaActivo, true);
             list = (await _collection.FindAsync(x => x.EstaActivo == true)).ToList();
 
-            return list.OrderByDescending(x=> x.FechaDeRegistro).ToList();
+            return list.OrderByDescending(x => x.FechaDeRegistro).ToList();
         }
 
         public async Task ActualizarAsync(Subcategoria item)
@@ -34,12 +35,19 @@ namespace gastosv4.Repositorios
         {
 
             Subcategoria item;
-            FilterDefinition<Subcategoria> filter;
-            if (id.Length == 36)
-                filter = Builders<Subcategoria>.Filter.Eq("Guid", id);
-            else
-                filter = Builders<Subcategoria>.Filter.Eq("Id", id);
-            item = (await _collection.FindAsync(filter)).FirstOrDefault();
+            // FilterDefinition<Subcategoria> filter;
+            // if (id.Length == 36) //a4ed734e-411a-494a-8190-6e3baf96a215
+            //     filter = Builders<Subcategoria>.Filter.Eq("Guid", id);
+            // else
+            //     filter = Builders<Subcategoria>.Filter.Eq("Id", id);
+
+            item = (await _collection.FindAsync(
+                new BsonDocument("$or", new BsonArray
+                {
+                    new BsonDocument("Id", id),
+                    new BsonDocument("Guid", id)
+                })
+            )).FirstOrDefault();
 
             return item;
         }
@@ -47,7 +55,7 @@ namespace gastosv4.Repositorios
         public async Task<string> AgregarAsync(Subcategoria subcategoria)
         {
             subcategoria.Id = await ObtenerIdAscyn();
-            
+
             await _collection.InsertOneAsync(subcategoria);
 
             return subcategoria.Id;

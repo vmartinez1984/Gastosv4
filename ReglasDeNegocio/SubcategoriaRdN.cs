@@ -50,5 +50,19 @@ namespace gastosv4.ReglasDeNegocio
 
             return dto;
         }
+
+        public async Task ActualizarAsync(string id, SubcategoriaDtoIn subcategoria)
+        {
+            Subcategoria subcategoria1;            
+
+            subcategoria1 = await _repositorio.Subcategoria.ObtenerAsync(id);
+            //subcategoria1 = _mapper.Map(subcategoria1,subcategoria);
+            subcategoria1.Categoria = subcategoria.Categoria;
+            subcategoria1.EsPrimario = subcategoria.EsPrimario;
+            subcategoria1.Cantidad = subcategoria.Cantidad;
+            subcategoria1.Nombre = subcategoria.Nombre;
+
+            await _repositorio.Subcategoria.ActualizarAsync(subcategoria1);
+        }
     }
 }

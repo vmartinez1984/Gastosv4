@@ -2,6 +2,8 @@ using AutoMapper;
 using gastosv4.Helpers;
 using gastosv4.ReglasDeNegocio;
 using gastosv4.Repositorios;
+using Gastosv4.ReglasDeNegocio;
+using Gastosv4.services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +16,8 @@ builder.Services.AddScoped<Repositorio>();
 //Reglas de negocio
 builder.Services.AddScoped<CategoriaRdN>();
 builder.Services.AddScoped<SubcategoriaRdN>();
+builder.Services.AddScoped<VersionRdN>();
+builder.Services.AddScoped<AhorroRdN>();
 builder.Services.AddScoped<UnitOfWork>();
 //Finde reglas de negocio
 //Mappers
@@ -42,6 +46,10 @@ builder.Services.AddCors(options =>
     });
 });
 // fin Cors
+
+//Servicio a DuckbankMs
+builder.Services.AddHttpClient();
+builder.Services.AddScoped<DuckBankServicio>();
 
 var app = builder.Build();
 

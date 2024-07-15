@@ -44,9 +44,15 @@ namespace gastosv4.Controllers
 
             id = await _unitOfWork.Subcategoria.AgregarAsync(item);
 
-            return Ok(new {Id = id, Guid= item.Guid});
+            return Ok(new { Id = id, Guid = item.Guid });
         }
 
-
+        [HttpPut("{id}")]
+        public async Task<ActionResult> ActualizarAsync(string id, SubcategoriaDtoIn subcategoria)
+        {          
+            await _unitOfWork.Subcategoria.ActualizarAsync(id, subcategoria);
+            
+            return Accepted();
+        }
     }
 }
