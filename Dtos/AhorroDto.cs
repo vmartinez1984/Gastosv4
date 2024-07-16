@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace Gastosv4.Dtos
 {
     public class AhorroDto
@@ -15,5 +17,22 @@ namespace Gastosv4.Dtos
         public DateTime FechaDeRegistro { get; set; } = DateTime.Now;
 
         public string Estado { get; set; }
+    }
+
+    public class AhorroDtoIn
+    {
+        public string Guid { get; set; }
+
+        [Required(ErrorMessage = "El nombre es obligatorio")]
+        public string Nombre { get; set; }
+        
+        [Required]
+        public string ClienteId { get; set; }
+        
+        public Dictionary<string, string> Otros { get; set; } = new Dictionary<string, string>();
+
+        [Range(0,20)]
+        public decimal Interes { get; set; } = 0;
+
     }
 }

@@ -1,15 +1,22 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace Gastosv4.Dtos
 {
     public class VersionDtoIn
     {        
         public string Guid { get; set; }
 
+        [Required(ErrorMessage = "El nombre es obligatorio")]
         public string Nombre { get; set; }
 
-        public List<Detalle> Detalles { get; set; }
+        public DateTime FechaInicial { get; set; }
+
+        public DateTime FechaFinal { get; set; }
+
+        public List<DetalleDto> Detalles { get; set; } = new List<DetalleDto>();
     }
 
-    public class Detalle{    
+    public class DetalleDto{    
 
         public string Guid { get; set; }
 

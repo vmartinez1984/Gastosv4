@@ -17,6 +17,14 @@ namespace gastosv4.Helpers
             CreateMap<SubcategoriaDtoIn, Subcategoria>();
 
             CreateMap<Ahorro, AhorroDto>();
+
+            CreateMap<AhorroDtoIn, Ahorro>();
+
+            CreateMap<TipoDeAhorroDtoIn,TipoDeAhorro>();
+
+            CreateMap<TipoDeAhorro, TipoDeAhorroDto>();
+
+            CreateMap<VersionDtoIn,VersionDePeriodo>();
         }
     }
 }

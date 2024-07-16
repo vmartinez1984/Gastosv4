@@ -40,7 +40,7 @@ namespace gastosv4.ReglasDeNegocio
             return id;
         }
 
-        internal async Task<SubcategoriaDto> ObtenerAsync(string id)
+        public async Task<SubcategoriaDto> ObtenerAsync(string id)
         {
             SubcategoriaDto dto;
             Subcategoria entidad;

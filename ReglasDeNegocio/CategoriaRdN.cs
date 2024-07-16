@@ -15,6 +15,7 @@ namespace gastosv4.ReglasDeNegocio
             _repositorio = repositorio;
             _mapper = mapper;
         }
+        
         public async Task<List<CategoriaDto>> ObtenerAsync()
         {
             List<Categoria> categorias;

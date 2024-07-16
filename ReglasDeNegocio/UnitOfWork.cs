@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Gastosv4.ReglasDeNegocio;
 
 namespace gastosv4.ReglasDeNegocio
@@ -14,9 +10,9 @@ namespace gastosv4.ReglasDeNegocio
             AhorroRdN ahorroRdN,
             // TransaccionBl transaccionBl,
             // HistorialBl historialBl,
-            VersionRdN versionBl
+            VersionRdN versionBl,
             // PresupuestoBl presupuestoBl,
-            // TipoDeCuentaBl tipoDeCuentaBl,
+            TipoDeAhorroRdN tipoDeAhorroRdN
             // PeriodoBl periodoBl,
             // MovimientoBl movimientoBl
         )
@@ -25,23 +21,24 @@ namespace gastosv4.ReglasDeNegocio
             Subcategoria = subcategoriaBl;
             Version = versionBl;
             Ahorro = ahorroRdN;
+            TipoDeAhorro = tipoDeAhorroRdN;
             // Transaccion = transaccionBl;
             // Historial = historialBl;
             // Presupuesto = presupuestoBl;
-            // TipoDeCuenta = tipoDeCuentaBl;
             // Periodo = periodoBl;
             // Movimiento = movimientoBl;
         }
-        public SubcategoriaRdN Subcategoria { get; internal set; }
-        public CategoriaRdN Categoria { get; set; }
+        public SubcategoriaRdN Subcategoria { get; }
 
-        public VersionRdN Version { get; set; }
+        public CategoriaRdN Categoria { get; }
+
+        public VersionRdN Version { get;  }
         
-        public AhorroRdN Ahorro {get; set;}
+        public AhorroRdN Ahorro {get; }
         // public TransaccionBl Transaccion { get; }
         // public HistorialBl Historial { get; internal set; }
         // public PresupuestoBl Presupuesto { get; internal set; }
-        // public TipoDeCuentaBl TipoDeCuenta { get; internal set; }
+        public TipoDeAhorroRdN TipoDeAhorro{get;}
         // public PeriodoBl Periodo { get; internal set; }
         // public MovimientoBl Movimiento { get; internal set; }
     }

@@ -16,11 +16,19 @@ namespace Gastosv4.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> ObtenerAsync(VersionDtoIn version)
+        public async Task<IActionResult> AgregarAsync(VersionDtoIn version)
         {
             string id;
 
             id = await _unitOfWork.Version.AgregarAsync(version);
+
+            return Ok(new { Id = id });
+        }
+
+        [HttpPost("{id}/Detalles")]
+        public async Task<IActionResult> AgregarDetalleAsync(string id, DetalleDto detalle)
+        {
+            await _unitOfWork.Version.AgregarDetalleAsync(id, detalle);
 
             return Ok(new { Id = id });
         }

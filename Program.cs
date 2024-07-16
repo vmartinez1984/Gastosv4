@@ -3,6 +3,7 @@ using gastosv4.Helpers;
 using gastosv4.ReglasDeNegocio;
 using gastosv4.Repositorios;
 using Gastosv4.ReglasDeNegocio;
+using Gastosv4.Repositorios;
 using Gastosv4.services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,8 @@ var builder = WebApplication.CreateBuilder(args);
 //inyeccion de repositorios
 builder.Services.AddScoped<CategoriaRepositorio>();
 builder.Services.AddScoped<SubcategoriaRepositorio>();
+builder.Services.AddScoped<TipoDeAhorroRepositorio>();
+builder.Services.AddScoped<VersionRepositorio>();
 builder.Services.AddScoped<Repositorio>();
 //fin de repos
 //Reglas de negocio
@@ -18,6 +21,8 @@ builder.Services.AddScoped<CategoriaRdN>();
 builder.Services.AddScoped<SubcategoriaRdN>();
 builder.Services.AddScoped<VersionRdN>();
 builder.Services.AddScoped<AhorroRdN>();
+builder.Services.AddScoped<TipoDeAhorroRdN>();
+builder.Services.AddScoped<VersionRdN>();
 builder.Services.AddScoped<UnitOfWork>();
 //Finde reglas de negocio
 //Mappers

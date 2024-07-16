@@ -24,5 +24,16 @@ namespace Gastosv4.ReglasDeNegocio
 
             return dtos;
         }
+
+        public async Task<string> AgregarAsync(AhorroDtoIn ahorro)
+        {
+            Ahorro ahorro1;
+            int id;
+
+            ahorro1 = _mapper.Map<Ahorro>(ahorro);
+            id =  await _duckBankServicio.AgregarAsycn(ahorro1);
+
+            return id.ToString();
+        }
     }
 }

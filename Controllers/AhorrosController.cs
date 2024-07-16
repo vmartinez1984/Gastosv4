@@ -1,4 +1,5 @@
 using gastosv4.ReglasDeNegocio;
+using Gastosv4.Dtos;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Gastosv4.Controllers
@@ -20,6 +21,16 @@ namespace Gastosv4.Controllers
             var ahorros = await _unitOfWork.Ahorro.ObtenerAsync();
 
             return Ok(ahorros);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AgregarAsync(AhorroDtoIn ahorro)
+        {
+            string id;
+
+            id = await _unitOfWork.Ahorro.AgregarAsync(ahorro);
+
+            return Ok(id);
         }
     }
 }
