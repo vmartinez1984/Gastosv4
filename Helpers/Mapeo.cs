@@ -6,7 +6,7 @@ using Gastosv4.Entidades;
 
 namespace gastosv4.Helpers
 {
-    public class Mapeo: Profile
+    public class Mapeo : Profile
     {
         public Mapeo()
         {
@@ -20,11 +20,17 @@ namespace gastosv4.Helpers
 
             CreateMap<AhorroDtoIn, Ahorro>();
 
-            CreateMap<TipoDeAhorroDtoIn,TipoDeAhorro>();
+            CreateMap<TipoDeAhorroDtoIn, TipoDeAhorro>();
 
             CreateMap<TipoDeAhorro, TipoDeAhorroDto>();
 
-            CreateMap<VersionDtoIn,VersionDePeriodo>();
+            CreateMap<VersionDtoIn, VersionDePeriodo>();
+
+            CreateMap<VersionDePeriodo, VersionDto>();
+
+            CreateMap<DetalleDto, Detalle>();
+
+            CreateMap<Detalle, DetalleDto>();
         }
     }
 }

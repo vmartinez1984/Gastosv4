@@ -30,7 +30,43 @@ namespace Gastosv4.Controllers
         {
             await _unitOfWork.Version.AgregarDetalleAsync(id, detalle);
 
-            return Ok(new { Id = id });
+            return Ok(new { Guid = detalle.Guid });
+        }
+
+        [HttpPut("{id}/Detalles")]
+        public async Task<IActionResult> ActualizarDetalleAsync(string id, DetalleDto detalle)
+        {
+            await _unitOfWork.Version.ActualizarDetalleAsync(id, detalle);
+
+            return Ok(new { Guid = detalle.Guid });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ObtenerAsync()
+        {
+            List<VersionDto> lista;
+
+            lista = await _unitOfWork.Version.ObtenerAsync();
+
+            return Ok(lista);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> ObtenerPorIdAsync(string id)
+        {
+            VersionDto dto;
+
+            dto = await _unitOfWork.Version.ObtenerAsync(id);
+
+            return Ok(dto);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> ActualizarAsync(string id, VersionDtoIn dto)
+        {
+            await _unitOfWork.Version.ActualizarAsync(id, dto);
+
+            return Accepted();
         }
     }
 }
