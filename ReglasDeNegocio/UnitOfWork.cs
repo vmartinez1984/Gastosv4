@@ -8,12 +8,12 @@ namespace gastosv4.ReglasDeNegocio
             SubcategoriaRdN subcategoriaBl,
             CategoriaRdN categoriaBl,
             AhorroRdN ahorroRdN,
+            VersionRdN versionBl,
+            TipoDeAhorroRdN tipoDeAhorroRdN,
+            PeriodoRdN periodoRdN
             // TransaccionBl transaccionBl,
             // HistorialBl historialBl,
-            VersionRdN versionBl,
             // PresupuestoBl presupuestoBl,
-            TipoDeAhorroRdN tipoDeAhorroRdN
-            // PeriodoBl periodoBl,
             // MovimientoBl movimientoBl
         )
         {
@@ -22,12 +22,14 @@ namespace gastosv4.ReglasDeNegocio
             Version = versionBl;
             Ahorro = ahorroRdN;
             TipoDeAhorro = tipoDeAhorroRdN;
+            Periodo = periodoRdN;
             // Transaccion = transaccionBl;
             // Historial = historialBl;
-            // Presupuesto = presupuestoBl;
-            // Periodo = periodoBl;
+            // Presupuesto = presupuestoBl;            
             // Movimiento = movimientoBl;
         }
+        public PeriodoRdN Periodo {get;}
+
         public SubcategoriaRdN Subcategoria { get; }
 
         public CategoriaRdN Categoria { get; }
@@ -39,7 +41,7 @@ namespace gastosv4.ReglasDeNegocio
         // public HistorialBl Historial { get; internal set; }
         // public PresupuestoBl Presupuesto { get; internal set; }
         public TipoDeAhorroRdN TipoDeAhorro{get;}
-        // public PeriodoBl Periodo { get; internal set; }
+ 
         // public MovimientoBl Movimiento { get; internal set; }
     }
 

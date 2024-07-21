@@ -35,5 +35,31 @@ namespace Gastosv4.ReglasDeNegocio
 
             return id.ToString();
         }
+
+        public async Task<string> DepositarAsync(string id, MovimientoDtoIn dto)
+        {
+            Movimiento entidad;
+
+            entidad = _mapper.Map<Movimiento>(dto);
+            if(string.IsNullOrEmpty(entidad.Referencia))
+                entidad.Referencia = Guid.NewGuid().ToString();
+
+            await _duckBankServicio.DepositarAsync(id, entidad);
+
+            return entidad.Referencia;
+        }
+
+        internal async Task<string> RetirarAsync(string id, MovimientoDtoIn dto)
+        {
+            Movimiento entidad;
+
+            entidad = _mapper.Map<Movimiento>(dto);
+            if(string.IsNullOrEmpty(entidad.Referencia))
+                entidad.Referencia = Guid.NewGuid().ToString();
+
+            await _duckBankServicio.RetirarAsync(id, entidad);
+
+            return entidad.Referencia;
+        }
     }
 }

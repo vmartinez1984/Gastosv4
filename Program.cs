@@ -14,6 +14,7 @@ builder.Services.AddScoped<CategoriaRepositorio>();
 builder.Services.AddScoped<SubcategoriaRepositorio>();
 builder.Services.AddScoped<TipoDeAhorroRepositorio>();
 builder.Services.AddScoped<VersionRepositorio>();
+builder.Services.AddScoped<PeriodoRepositorio>();
 builder.Services.AddScoped<Repositorio>();
 //fin de repos
 //Reglas de negocio
@@ -23,6 +24,7 @@ builder.Services.AddScoped<VersionRdN>();
 builder.Services.AddScoped<AhorroRdN>();
 builder.Services.AddScoped<TipoDeAhorroRdN>();
 builder.Services.AddScoped<VersionRdN>();
+builder.Services.AddScoped<PeriodoRdN>();
 builder.Services.AddScoped<UnitOfWork>();
 //Finde reglas de negocio
 //Mappers

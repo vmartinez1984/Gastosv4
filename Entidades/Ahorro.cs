@@ -22,7 +22,7 @@ namespace Gastosv4.Entidades
     {
         public decimal Cantidad { get; set; }
 
-        public DateTime FechaDeRegistro { get; set; }
+        public DateTime FechaDeRegistro { get; set; } = DateTime.Now;
 
         public string Concepto { get; set; }
 

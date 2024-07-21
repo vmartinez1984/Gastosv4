@@ -11,18 +11,21 @@ namespace gastosv4.Repositorios
         public TipoDeAhorroRepositorio TipoDeAhorro { get; }
 
         public VersionRepositorio Version { get; }
-        
+        public PeriodoRepositorio Periodo { get; }
+
         public Repositorio(
             CategoriaRepositorio categoriaRepositorio,
             SubcategoriaRepositorio subcategoriaRepositorio,
             TipoDeAhorroRepositorio tipoDeAhorroRepositorio,
-            VersionRepositorio versionRepositorio
+            VersionRepositorio versionRepositorio,
+            PeriodoRepositorio periodoRepositorio
         )
         {
             Categoria = categoriaRepositorio;
             Subcategoria = subcategoriaRepositorio;
             TipoDeAhorro = tipoDeAhorroRepositorio;
             Version = versionRepositorio;
+            Periodo = periodoRepositorio;
         }
 
     }

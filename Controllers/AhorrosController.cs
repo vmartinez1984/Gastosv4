@@ -32,5 +32,21 @@ namespace Gastosv4.Controllers
 
             return Ok(id);
         }
+
+        [HttpPost("{id}/depositos")]
+        public async Task<IActionResult> Depositar(string id, MovimientoDtoIn movimiento)
+        {
+            movimiento.Referencia = await _unitOfWork.Ahorro.DepositarAsync(id, movimiento);
+
+            return Created("", movimiento);
+        }
+
+        [HttpPost("{id}/retiros")]
+        public async Task<IActionResult> Retiros(string id, MovimientoDtoIn movimiento)
+        {
+            movimiento.Referencia = await _unitOfWork.Ahorro.RetirarAsync(id, movimiento);
+
+            return Created("", movimiento);
+        }
     }
 }

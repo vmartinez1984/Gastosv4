@@ -1,3 +1,4 @@
+using Amazon.Auth.AccessControlPolicy.ActionIdentifiers;
 using AutoMapper;
 using gastosv4.Dtos;
 using gastosv4.Entidades;
@@ -30,7 +31,15 @@ namespace gastosv4.Helpers
 
             CreateMap<DetalleDto, Detalle>();
 
-            CreateMap<Detalle, DetalleDto>();
+            CreateMap<MovimientoDtoIn, Movimiento>();
+
+            CreateMap<Detalle, DetalleDto>();           
+
+            CreateMap<MovimientoPeriodo, MovimientoPeriodoDto>();
+
+            CreateMap<DetalleDePeriodo, DetalleDePeriodoDto>();          
+
+            CreateMap<Periodo, PeriodoDto>();            
         }
     }
 }

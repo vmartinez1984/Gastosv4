@@ -89,7 +89,7 @@ namespace Gastosv4.services
             HttpResponseMessage response;
 
             var client = _clientFactory.CreateClient();
-            var request = new HttpRequestMessage(HttpMethod.Post, _url + $"/Ahorros/{id}/Depositos");
+            var request = new HttpRequestMessage(HttpMethod.Post, _url + $"/Ahorros/{id}/Retiros");
             var content = new StringContent(JsonConvert.SerializeObject(movimiento), null, "application/json");
             request.Content = content;
             response = await client.SendAsync(request);
