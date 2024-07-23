@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Gastosv4.Entidades;
 using Newtonsoft.Json;
 
@@ -18,7 +14,7 @@ namespace Gastosv4.services
             _url = configuration.GetValue<string>("DuckBankMs");
         }
 
-        public async Task<List<Ahorro>> ObternerAsync()
+        public async Task<List<Ahorro>> ObtenerAsync()
         {
             HttpResponseMessage response;
             List<Ahorro> ahorros;

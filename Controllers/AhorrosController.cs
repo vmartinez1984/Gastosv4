@@ -23,6 +23,14 @@ namespace Gastosv4.Controllers
             return Ok(ahorros);
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> ObtenerAsync(string id)
+        {
+            var ahorros = await _unitOfWork.Ahorro.ObtenerAsync(id);
+
+            return Ok(ahorros);
+        }
+
         [HttpPost]
         public async Task<IActionResult> AgregarAsync(AhorroDtoIn ahorro)
         {

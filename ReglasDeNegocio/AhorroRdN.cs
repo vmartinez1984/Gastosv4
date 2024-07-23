@@ -15,14 +15,26 @@ namespace Gastosv4.ReglasDeNegocio
             _duckBankServicio = duckBankServicio;
             _mapper = mapper;
         }
-        public async Task<List<AhorroDto>> ObtenerAsync(){
+        public async Task<List<AhorroDto>> ObtenerAsync()
+        {
             List<Ahorro> ahorros;
             List<AhorroDto> dtos;
 
-            ahorros = await _duckBankServicio.ObternerAsync();
+            ahorros = await _duckBankServicio.ObtenerAsync();
             dtos = _mapper.Map<List<AhorroDto>>(ahorros);
 
             return dtos;
+        }
+
+        public async Task<AhorroDto> ObtenerAsync(string ahorroId)
+        {
+            Ahorro entidad;
+            AhorroDto dto;
+
+            entidad = await _duckBankServicio.ObtenerAsync(ahorroId);
+            dto = _mapper.Map<AhorroDto>(entidad);            
+
+            return dto;
         }
 
         public async Task<string> AgregarAsync(AhorroDtoIn ahorro)
@@ -31,7 +43,7 @@ namespace Gastosv4.ReglasDeNegocio
             int id;
 
             ahorro1 = _mapper.Map<Ahorro>(ahorro);
-            id =  await _duckBankServicio.AgregarAsycn(ahorro1);
+            id = await _duckBankServicio.AgregarAsycn(ahorro1);
 
             return id.ToString();
         }
@@ -41,7 +53,7 @@ namespace Gastosv4.ReglasDeNegocio
             Movimiento entidad;
 
             entidad = _mapper.Map<Movimiento>(dto);
-            if(string.IsNullOrEmpty(entidad.Referencia))
+            if (string.IsNullOrEmpty(entidad.Referencia))
                 entidad.Referencia = Guid.NewGuid().ToString();
 
             await _duckBankServicio.DepositarAsync(id, entidad);
@@ -54,7 +66,7 @@ namespace Gastosv4.ReglasDeNegocio
             Movimiento entidad;
 
             entidad = _mapper.Map<Movimiento>(dto);
-            if(string.IsNullOrEmpty(entidad.Referencia))
+            if (string.IsNullOrEmpty(entidad.Referencia))
                 entidad.Referencia = Guid.NewGuid().ToString();
 
             await _duckBankServicio.RetirarAsync(id, entidad);
