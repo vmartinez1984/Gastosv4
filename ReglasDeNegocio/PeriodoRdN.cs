@@ -61,6 +61,8 @@ namespace Gastosv4.ReglasDeNegocio
         {
             Periodo periodo;
             string referencia;
+            Gastosv4.Entidades.Movimiento movimientoDuck;
+            const string ahorroIdDeEntrada = "1007";
 
             referencia = Guid.NewGuid().ToString();
             periodo = await _repositorio.Periodo.ObtenerAsync(peridoId);
@@ -71,13 +73,15 @@ namespace Gastosv4.ReglasDeNegocio
                 Guid = referencia,
                 Nota = moviento.Nota
             });
-            await _bankServicio.DepositarAsync(detalle.Detalle.AhorroId, new Movimiento
+            movimientoDuck = new Gastosv4.Entidades.Movimiento
             {
                 Cantidad = moviento.Cantidad,
                 Concepto = detalle.Detalle.Nombre,
                 FechaDeRegistro = DateTime.Now,
                 Referencia = referencia
-            });
+            };
+            await _bankServicio.DepositarAsync(detalle.Detalle.AhorroId, movimientoDuck);
+            await _bankServicio.RetirarAsync(ahorroIdDeEntrada, movimientoDuck);
             await _repositorio.Periodo.ActualizarAsync(periodo);
 
             return referencia;
@@ -101,7 +105,12 @@ namespace Gastosv4.ReglasDeNegocio
 
             entidad = await _repositorio.Periodo.ObtenerAsync(id);
             dto = _mapper.Map<PeriodoDto>(entidad);
-
+            foreach (var item in dto.Detalles)
+            {
+                var ahorro = await    _bankServicio.ObtenerAsync(item.Detalle.AhorroId);
+                item.Detalle.TipoDeAhorro = ahorro.Otros.FirstOrDefault(x=> x.Key == "tipoDeCuenta").Value;
+            }
+            
             return dto;
         }
     }

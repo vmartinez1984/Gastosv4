@@ -32,8 +32,7 @@ namespace Gastosv4.services
 
         public async Task<int> AgregarAsycn(Ahorro ahorro)
         {
-            HttpResponseMessage response;
-            int id;
+            HttpResponseMessage response;            
 
             var client = _clientFactory.CreateClient();
             var request = new HttpRequestMessage(HttpMethod.Post, _url + "/Ahorros");

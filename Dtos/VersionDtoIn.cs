@@ -26,6 +26,8 @@ namespace Gastosv4.Dtos
         public string Nombre { get; set; }
 
         public string AhorroId { get; set; }
+
+        public string TipoDeAhorro {get; set; }
     }
 
     public class VersionDto

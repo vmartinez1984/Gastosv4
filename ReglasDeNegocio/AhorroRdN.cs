@@ -33,6 +33,8 @@ namespace Gastosv4.ReglasDeNegocio
 
             entidad = await _duckBankServicio.ObtenerAsync(ahorroId);
             dto = _mapper.Map<AhorroDto>(entidad);            
+            dto.Depositos = dto.Depositos.OrderByDescending(a => a.FechaDeRegistro).ToList();
+            dto.Retiros = dto.Retiros.OrderByDescending(a => a.FechaDeRegistro).ToList();
 
             return dto;
         }
